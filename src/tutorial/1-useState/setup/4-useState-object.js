@@ -4,19 +4,24 @@ const UseStateObject = () => {
   const [person, setPerson] = useState({
     name: 'Girish Krishna',
     aka: 'Spider-Man',
-    age: 25,
+    message: 'With great power comes great responsibility',
   });
 
-  function clickHandler() {
-    setPerson({...person, age: 26})
-  }
+  const changeMessage = () => {
+    setPerson({
+      ...person,
+      message: 'if life offers you a lemon, make a lemonade.',
+    });
+  };
 
   return (
     <>
-      <h3>{person.name}</h3>
-      <h3>{person.aka}</h3>
-      <h3>{person.age}</h3>
-      <button onClick={clickHandler}>Click Me</button>
+      <h5>{person.name}</h5>
+      <h5>{person.aka}</h5>
+      <h5>{person.message}</h5>
+      <button className="btn" onClick={changeMessage}>
+        change message
+      </button>
     </>
   );
 };
