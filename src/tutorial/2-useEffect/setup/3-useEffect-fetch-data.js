@@ -10,8 +10,8 @@ const UseEffectFetchData = () => {
     const data = await response.json();
     setUsers(data);
   };
-  // we can't make useEffect as async function.
-  // so we are creating one and calling it from useEffect.
+  // we can't use async, await in useEffect.
+  // so we are creating a function and calling it from useEffect.
   useEffect(() => {
     getUsers();
   }, []);
