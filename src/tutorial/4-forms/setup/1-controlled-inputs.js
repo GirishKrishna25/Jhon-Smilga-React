@@ -10,17 +10,30 @@ import React, { useState } from 'react';
 const ControlledInputs = () => {
   const [firstName, setFirstName] = useState('');
   const [email, setEmail] = useState('');
+  const [people, setPeople] = useState([]);
 
   const submitHandler = (e) => {
     // when we submit the form, page automatically refreshers and to prevent that we use,
     e.preventDefault();
-    alert(
-      `
-       form Submitted.
-       name: ${firstName}
-       email: ${email}
-      `
-    );
+    if (firstName && email) {
+      // both works fine
+      // setPeople([...people, {firstName, email}]);
+      setPeople((prevPeople) => {
+        const id = new Date().getTime().toString();
+        return [...prevPeople, { id, firstName, email }];
+        // return [...prevPeople, {firstName:firstName, email:email}]
+      });
+      setFirstName('');
+      setEmail('');
+    } else {
+      alert(
+        `
+         Please don't leave input fields Empty
+         name: ${firstName}
+         email: ${email}
+        `
+      );
+    }
   };
 
   // we can write submit at the form / button. both works same.
@@ -57,6 +70,16 @@ const ControlledInputs = () => {
           </button>
         </form>
       </article>
+
+      {people.map((person) => {
+        const { id, firstName, email } = person;
+        return (
+          <div className="item" key={id}>
+            <h4>{firstName}</h4>
+            <p>{email}</p>
+          </div>
+        );
+      })}
     </>
   );
 };
