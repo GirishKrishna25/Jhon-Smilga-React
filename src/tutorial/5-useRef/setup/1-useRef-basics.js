@@ -1,10 +1,10 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef } from 'react';
 
 // to set up uncontrolled inputs
 // works lot like useState
 // preserves value
 // DOES NOT trigger re-render
-// target DOM nodes/elements
+// target DOM nodes/elements (most use case)
 
 const UseRefBasics = () => {
   const inputRef = useRef(null);
