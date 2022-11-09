@@ -1,7 +1,17 @@
 import React, { useEffect } from 'react';
 
-const Modal = () => {
-  return <div>i'm modal</div>;
+const Modal = (props) => {
+  useEffect(() => {
+    setInterval(() => {
+      props.closeModal();
+    }, 3000)
+  })
+
+  return (
+    <div className="modal">
+      <p>{props.modalContent}</p>
+    </div>
+  );
 };
 
 export default Modal;
