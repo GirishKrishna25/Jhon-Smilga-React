@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from "react";
 
 // preserves value
 // DOES NOT trigger re-render
@@ -18,11 +18,11 @@ const UseRefBasics = () => {
 
   return (
     <>
-      <form className='form' onSubmit={handleSubmit}>
+      <form className="form" onSubmit={handleSubmit}>
         <div>
-          <input type='text' ref={refContainer} />
+          <input type="text" ref={refContainer} />
         </div>
-        <button type='submit'>submit</button>
+        <button type="submit">submit</button>
       </form>
     </>
   );
